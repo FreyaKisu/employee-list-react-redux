@@ -1,0 +1,7 @@
+const ActionTypes = {
+  FETCH_EMPLOYEES: "FETCH_EMPLOYEES",
+
+  BACKGROUND_COLOR_CHANGE: "BACKGROUND_COLOR_CHANGE"
+};
+
+export default ActionTypes;
