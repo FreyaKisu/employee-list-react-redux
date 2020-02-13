@@ -1,5 +1,5 @@
 import uiStyles from "./UiStyles";
 
-export default function fetchTestUiStyles(color) {
+export default function fetchTestUiStyles() {
   return [new uiStyles("#fff")];
 }

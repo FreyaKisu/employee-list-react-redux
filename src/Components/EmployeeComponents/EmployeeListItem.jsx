@@ -3,27 +3,8 @@ import React, { Component } from "react";
 export default class EmployeeListItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      employeeObject: [
-        {
-          name: "",
-          department: "",
-          salary: 0,
-          id: 0
-        }
-      ]
-    };
   }
-  componentDidMount = () => {
-    this.setState({
-      employeeObject: {
-        name: this.props.employee.name,
-        department: this.props.employee.department,
-        salary: this.props.employee.salary,
-        id: this.props.employee._id
-      }
-    });
-  };
+  
 
   handleChange = event => {
     this.setState({
@@ -49,8 +30,7 @@ export default class EmployeeListItem extends Component {
         {`Name: ${this.props.item.name} Department: ${this.props.item.department} Salary: ${this.props.item.salary} Id:${this.props.item.id}`}
 
         <select
-          id={this.state.employeeObject.department}
-          onChange={this.props.handleChange}
+          id={this.props.item.department}
         >
           <option value="development">Development</option>
           <option value="marketing">Marketing</option>
@@ -59,8 +39,9 @@ export default class EmployeeListItem extends Component {
 
         <button type="button" onClick={this.handleRaise}>
           Increase salary
-        </button>
+      </button>
       </li>
-    );
+    )
   }
+
 }

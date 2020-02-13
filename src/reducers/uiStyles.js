@@ -1,24 +1,21 @@
 import ActionTypes from "../actions/ActionTypes";
 
 const initialState = {
-  uiStyles: []
-};
+  background: '#fff'
+}
 
-export default function uiStyles(state = initialState, action) {
-  /*const returnObject = {
-    ...state
-  };
-
-  switch (action.type) {
+export default function uiStyles(state = initialState, payload) {
+  switch (payload.type) {
     case ActionTypes.BACKGROUND_COLOR_CHANGE:
-      returnObject.uiStyles = action.uiStyles;
-      break;
+      return {
+        ...state,
+        background: payload.background
+      }
 
-    case null:
-      break;
-    default:
-      return state;
+      case null:
+        break;
+      default:
+        return state;
   }
-  */
-  return state;
+
 }

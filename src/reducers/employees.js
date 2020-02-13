@@ -1,17 +1,24 @@
 import ActionTypes from "../actions/ActionTypes";
-import fetchTestEmployees from "../Models/EmployeeData";
 
-export const initialState = {
-  employeeList: fetchTestEmployees()
-};
+const initialState = {
+  employeeList: [{
+    name: "TESTI",
+    department: "TESTI",
+    salary: 3000,
+    id: 1234
+  }]
+}
 
-export default function employees(state = [], action) {
+export default function employees(state = initialState, action) {
+
+  console.log('action',action)
+  
   switch (action.type) {
     case ActionTypes.FETCH_EMPLOYEES:
-      state = action.employeeList;
-      console.log("Fetching employees");
-      console.log(state);
-      break;
+      return {
+        ...state,
+        employeeList: action.employeeList
+      }
 
     case null:
       break;

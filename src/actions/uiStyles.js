@@ -6,9 +6,9 @@ export const backgroundColorChange = uiStyles => ({
   uiStyles: uiStyles
 });
 
-export const updateBackgound = color => {
+export const updateBackgound = (background) => {
   return {
     type: ActionTypes.BACKGROUND_COLOR_CHANGE,
-    uiStyles: fetchTestUiStyles(color)
+    background
   };
 };

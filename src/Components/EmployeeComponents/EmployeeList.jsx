@@ -13,6 +13,7 @@ class EmployeeList extends Component {
   componentDidMount() {
     //this.setState({ employees: fetchTestEmployees() });
     this.props.employeesFetch();
+   // this.props.backgroundUpdate('#000')
   }
 
   getRandomColor = () => {
@@ -27,23 +28,19 @@ class EmployeeList extends Component {
     );
   };
 
-  componentWillMount() {
-    this.setState({ randomColor: this.getRandomColor() });
-  }
-
   generateRandomColor = () => {
-    this.setState({ randomColor: this.getRandomColor() });
-
-    this.backgroundUpdate(this.state.randomColor);
+  //  this.setState({ randomColor: this.getRandomColor() });
+    this.props.backgroundUpdate(this.getRandomColor())
+   // this.backgroundUpdate(this.state.randomColor);
   };
 
   render() {
     return (
-      <div style={{ backgroundColor: "{this.state.randomColor}" }}>
+      <div style={{ backgroundColor: this.state.randomColor }}>
         <h2>Employees</h2>
         <button onClick={this.generateRandomColor}>Change color</button>
         <ol>
-          {this.state.employeeList.map((item, index) => (
+          {Object.values(this.props.employees.employeeList).map((item, index) => (
             <EmployeeListItem key={item.id} item={item} index={index} />
           ))}
         </ol>
@@ -62,7 +59,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  employeeList: state.employeeList,
+  employees: state.employees,
   uiStyles: state.uiStyles
 });
 

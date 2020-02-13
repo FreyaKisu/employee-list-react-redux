@@ -4,7 +4,7 @@ import React, { Component } from "react";
 export default class Employees extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="employees">
         <EmployeeList />
       </div>
     );
