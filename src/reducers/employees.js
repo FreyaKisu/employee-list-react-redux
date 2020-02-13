@@ -1,28 +1,40 @@
 import ActionTypes from "../actions/ActionTypes";
 
 const initialState = {
-  employeeList: [{
-    name: "TESTI",
-    department: "TESTI",
-    salary: 3000,
-    id: 1234
-  }]
+  employeeList: []
 }
 
-export default function employees(state = initialState, action) {
+export default function employees(state = initialState, payload) {
 
-  console.log('action',action)
-  
-  switch (action.type) {
-    case ActionTypes.FETCH_EMPLOYEES:
+  switch (payload.type) {
+    case ActionTypes.UPDATE_EMPLOYEES:
       return {
         ...state,
-        employeeList: action.employeeList
+        employeeList: payload.employeeList
       }
+      case ActionTypes.CHANGE_DEPARTMENT:
+        const newState = {
+          employeeList: {
+            [payload.index]: {
+              department: payload.department
+            }
+          }
+        }
+        return {
+          ...state,
+          newState
+        }
+        case ActionTypes.RAISE_SALARY:
+          state.employeeList[payload.index].salary += 100
 
-    case null:
-      break;
-    default:
-      return state;
+          return {
+            ...state
+          }
+          case null:
+            break;
+          default:
+            return {
+              ...state
+            };
   }
 }

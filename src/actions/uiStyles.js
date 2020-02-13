@@ -1,5 +1,4 @@
 import ActionTypes from "./ActionTypes";
-import fetchTestUiStyles from "../Models/UiStylesData";
 
 export const backgroundColorChange = uiStyles => ({
   type: ActionTypes.BACKGROUND_COLOR_CHANGE,

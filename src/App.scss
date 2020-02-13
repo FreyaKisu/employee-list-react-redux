@@ -11,12 +11,41 @@ $font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 .container {
   background-color: $default-background;
   width: 100%;
-  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: $text-color;
   font-family: $font;
+}
+
+.wrapper .employee-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+.wrapper .employees {
+	flex: 1 0 25%;
+  box-sizing: border-box;
+  color: #171e42;
+  padding: 10px;
+}
+
+
+ul{
+  list-style: none;
+}
+
+.employee-list{
+  padding: 0;
+}
+
+button{
+  margin: 5px;
+  border-radius: 15%;
+  padding: 5px;
+}
+
+select {
+  margin: 5px;
 }
 
 /* Mobile Styles */
@@ -30,9 +59,6 @@ $font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 @media only screen and (min-width: 401px) and (max-width: 960px) {
   body {
     background-color: #f5cf8e;
-  }
-  .container {
-    width: 50&;
   }
 }
 
